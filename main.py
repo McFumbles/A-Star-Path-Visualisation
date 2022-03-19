@@ -79,3 +79,14 @@ def h(p1, p2):
   x2, y2 = p2
   p2 = (1,9)
   return abs(x1 - x2) + abs(y1 - y2)
+
+def make_grid(rows, width):
+  grid = []
+  gap = width // rows
+  for i in range(rows):
+    grid.append([grid])
+    for j in range(rows):
+      node = Node(i, j, gap, rows)
+      grid[i].append(node)
+  
+  return grid
