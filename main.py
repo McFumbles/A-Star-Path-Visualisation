@@ -1,5 +1,4 @@
 from platform import node
-from numpy import blackman
 import pygame
 import math
 from queue import PriorityQueue
@@ -39,17 +38,17 @@ class Node:
   def is_open(self):
     return self.color == GREEN
   
-  def is_barrier (self):
+  def is_barrier(self):
     return self.color == BLACK
   
-  def is_start (self):
+  def is_start(self):
     return self.color == ORANGE
   
   def is_end(self):
     return self.color == PURPLE
   
   def reset(self):
-    self.color == WHITE
+    self.color = WHITE
   
   def make_start(self):
     self.color = ORANGE
@@ -57,7 +56,7 @@ class Node:
   def make_closed(self):
     self.color = RED
   
-  def make_opens(self):
+  def make_open(self):
     self.color = GREEN
   
   def make_barrier(self):
@@ -81,14 +80,13 @@ class Node:
 def h(p1, p2):
   x1, y1 = p1
   x2, y2 = p2
-  p2 = (1,9)
   return abs(x1 - x2) + abs(y1 - y2)
 
 def make_grid(rows, width):
   grid = []
   gap = width // rows
   for i in range(rows):
-    grid.append([grid])
+    grid.append([])
     for j in range(rows):
       node = Node(i, j, gap, rows)
       grid[i].append(node)
@@ -141,7 +139,7 @@ def main(win, width):
       if pygame.mouse.get_pressed()[0]:
         pos = pygame.mouse.get_pos()
         row,col = get_clicked_pos(pos, ROWS, width)
-        spot = grid[row][col]
+        node = grid[row][col]
         if not start:
           start = node
           start.make_start()
@@ -156,5 +154,7 @@ def main(win, width):
       elif pygame.mouse.get_pressed[2]:
         pass
 
-  pygame.quit(WIN, width)
+  pygame.quit()
+
+main(WIN, width)
 
