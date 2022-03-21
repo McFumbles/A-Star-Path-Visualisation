@@ -151,7 +151,7 @@ def main(win, width):
         elif node != end and node != start:
           node.make_barrier()
 
-      elif pygame.mouse.get_pressed[2]:
+      elif pygame.mouse.get_pressed()[2]:
         pass
 
   pygame.quit()
