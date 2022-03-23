@@ -218,7 +218,7 @@ def main(win, width):
           end = None
 
         if event.type == pygame.KEYDOWN:
-          if event.key == pygame.K_SPACE and not started:
+          if event.key == pygame.K_SPACE and started:
             for row in grid:
               for node in row:
                 node.update_neighbors(grid)
