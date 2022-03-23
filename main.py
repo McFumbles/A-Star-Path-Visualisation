@@ -193,7 +193,7 @@ def main(win, width):
 
       if pygame.mouse.get_pressed()[0]:
         pos = pygame.mouse.get_pos()
-        row,col = get_clicked_pos(pos, ROWS, width)
+        row, col = get_clicked_pos(pos, ROWS, width)
         node = grid[row][col]
         if not start and node != end:
           start = node
@@ -214,11 +214,11 @@ def main(win, width):
         if node == start: 
           start = None
         
-        if node == end:
+        elif node == end:
           end = None
 
         if event.type == pygame.KEYDOWN:
-          if event.key == pygame.K_SPACE and started:
+          if event.key == pygame.K_SPACE and not started:
             for row in grid:
               for node in row:
                 node.update_neighbors(grid)
