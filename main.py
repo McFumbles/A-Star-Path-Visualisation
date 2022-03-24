@@ -44,7 +44,7 @@ class Node:
     return self.color == ORANGE
   
   def is_end(self):
-    return self.color == PURPLE
+    return self.color == TURQUOISE
   
   def reset(self):
     self.color = WHITE
@@ -189,7 +189,6 @@ def main(win, width):
   end = None
 
   run = True 
-  started = False
   while run:
     draw(win, grid, ROWS, width)
     for event in pygame.event.get():
